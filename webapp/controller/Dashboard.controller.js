@@ -57,6 +57,10 @@ sap.ui.define([
 			this.getRouter().navTo("risks", { query: { severity: "Critical" } });
 		},
 
+		onViewAllProjectsPress: function () {
+			this.getRouter().navTo("projects", { query: {} });
+		},
+
 		onViewAllMilestonesPress: function () {
 			this.getRouter().navTo("milestones", { query: {} });
 		},

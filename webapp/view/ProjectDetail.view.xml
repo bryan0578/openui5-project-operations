@@ -87,12 +87,16 @@
 						<uxap:subSections>
 							<uxap:ObjectPageSubSection>
 								<uxap:blocks>
-									<List items="{detail>/team}" noDataText="{i18n>noTeamMembers}">
-										<StandardListItem
-											title="{detail>name}"
-											description="{detail>role}"
-											icon="sap-icon://person-placeholder"
-										/>
+									<List items="{detail>/team}" noDataText="{i18n>noTeamMembers}" class="opTeamList">
+										<CustomListItem>
+											<HBox alignItems="Center" class="sapUiTinyMargin">
+												<Avatar initials="{detail>initials}" class="sapUiTinyMarginEnd"/>
+												<VBox>
+													<Text text="{detail>name}"/>
+													<Text text="{detail>role}" class="opStatLabel"/>
+												</VBox>
+											</HBox>
+										</CustomListItem>
 									</List>
 								</uxap:blocks>
 							</uxap:ObjectPageSubSection>
@@ -106,14 +110,16 @@
 									<Table items="{detail>/milestones}" noDataText="{i18n>noMilestonesForProject}">
 										<columns>
 											<Column><Text text="{i18n>colMilestone}"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
 											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colDueDate}"/></Column>
-											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colCompletion}"/></Column>
+											<Column hAlign="End" minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colCompletion}"/></Column>
 											<Column><Text text="{i18n>colMilestoneStatus}"/></Column>
 										</columns>
 										<items>
 											<ColumnListItem>
 												<cells>
 													<Text text="{detail>name}"/>
+													<Text text="{detail>ownerName}"/>
 													<Text text="{ path: 'detail>dueDate', formatter: 'F.formatDate' }"/>
 													<ObjectNumber number="{detail>completionPercent}" unit="%"/>
 													<ObjectStatus
@@ -137,7 +143,7 @@
 									<Table items="{detail>/deliverables}" noDataText="{i18n>noDeliverablesForProject}">
 										<columns>
 											<Column><Text text="{i18n>colDeliverable}"/></Column>
-											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner2}"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
 											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colDueDate}"/></Column>
 											<Column><Text text="{i18n>colDeliverableStatus}"/></Column>
 										</columns>
@@ -148,7 +154,7 @@
 													<Text text="{detail>ownerName}"/>
 													<Text text="{ path: 'detail>dueDate', formatter: 'F.formatDate' }"/>
 													<ObjectStatus
-														text="{detail>status}"
+														text="{ path: 'detail>status', formatter: '.formatDeliverableStatusText' }"
 														state="{ path: 'detail>status', formatter: 'F.deliverableStatusState' }"
 													/>
 												</cells>
@@ -200,7 +206,7 @@
 						<uxap:subSections>
 							<uxap:ObjectPageSubSection>
 								<uxap:blocks>
-									<List items="{detail>/activities}" noDataText="{i18n>noActivityForProject}">
+									<List items="{detail>/activities}" noDataText="{i18n>noActivityForProject}" class="opActivityList">
 										<StandardListItem
 											title="{detail>description}"
 											info="{ path: 'detail>timestamp', formatter: 'F.formatDateTime' }"

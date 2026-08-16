@@ -157,16 +157,6 @@ sap.ui.define([
 				return "";
 			}
 			return iValue + "%";
-		},
-
-		/**
-		 * @param {number} iCount
-		 * @param {string} sSingular
-		 * @param {string} sPlural
-		 * @returns {string}
-		 */
-		pluralize: function (iCount, sSingular, sPlural) {
-			return (iCount === 1) ? sSingular : sPlural;
 		}
 	};
 });

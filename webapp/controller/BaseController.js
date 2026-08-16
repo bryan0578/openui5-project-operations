@@ -1,8 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/UIComponent",
-	"sap/ui/core/routing/History"
-], function (Controller, UIComponent, History) {
+	"sap/ui/core/UIComponent"
+], function (Controller, UIComponent) {
 	"use strict";
 
 	return Controller.extend("projectops.controller.BaseController", {
@@ -74,14 +73,17 @@ sap.ui.define([
 		},
 
 		/**
-		 * Navigates back to the previous view when possible, otherwise falls back to the Dashboard.
+		 * Translates a deliverable status code into its display text.
+		 * @param {string} sStatus Draft | In Review | Accepted
+		 * @returns {string}
 		 */
-		onNavBack: function () {
-			var sPreviousHash = History.getInstance().getPreviousHash();
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
-				this.getRouter().navTo("dashboard", {}, true);
+		formatDeliverableStatusText: function (sStatus) {
+			var oBundle = this.getResourceBundle();
+			switch (sStatus) {
+				case "Draft": return oBundle.getText("deliverableStatusDraft");
+				case "In Review": return oBundle.getText("deliverableStatusInReview");
+				case "Accepted": return oBundle.getText("deliverableStatusAccepted");
+				default: return sStatus;
 			}
 		}
 	});

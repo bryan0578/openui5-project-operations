@@ -56,7 +56,7 @@
 						<Toolbar>
 							<Title id="projectsCountTitle" text="" level="H2"/>
 							<ToolbarSpacer/>
-							<Button icon="sap-icon://sort" tooltip="{i18n>filterTooltip}" press="onSortPress"/>
+							<Button icon="sap-icon://sort" tooltip="{i18n>sortTooltip}" press="onSortPress"/>
 						</Toolbar>
 					</headerToolbar>
 					<columns>

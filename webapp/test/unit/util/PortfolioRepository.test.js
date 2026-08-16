@@ -54,6 +54,18 @@ sap.ui.define([
 		assert.strictEqual(aMilestones[0].derivedStatus, "Completed");
 	});
 
+	QUnit.test("expandDeliverables joins project name and owner name", function (assert) {
+		var aDeliverables = PortfolioRepository.expandDeliverables(this.oData);
+		assert.strictEqual(aDeliverables[0].projectName, "Test Project");
+		assert.strictEqual(aDeliverables[0].ownerName, "John Roe");
+	});
+
+	QUnit.test("expandRisks joins project name and owner name", function (assert) {
+		var aRisks = PortfolioRepository.expandRisks(this.oData);
+		assert.strictEqual(aRisks[0].projectName, "Test Project");
+		assert.strictEqual(aRisks[0].ownerName, "Jane Doe");
+	});
+
 	QUnit.test("getProjectDetail assembles team, milestones, deliverables, risks, and activities", function (assert) {
 		var oDetail = PortfolioRepository.getProjectDetail(this.oData, "PRJ1", new Date(2026, 0, 10));
 		assert.strictEqual(oDetail.team.length, 2);

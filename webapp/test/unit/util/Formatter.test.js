@@ -57,10 +57,4 @@ sap.ui.define([
 		assert.ok(sResult.length > 0, "a formatted date string is returned");
 		assert.ok(sResult.indexOf("2026") !== -1, "the formatted date contains the year");
 	});
-
-	QUnit.test("pluralize chooses singular or plural based on count", function (assert) {
-		assert.strictEqual(Formatter.pluralize(1, "risk", "risks"), "risk");
-		assert.strictEqual(Formatter.pluralize(0, "risk", "risks"), "risks");
-		assert.strictEqual(Formatter.pluralize(5, "risk", "risks"), "risks");
-	});
 });

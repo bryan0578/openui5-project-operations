@@ -61,7 +61,7 @@
 						<Toolbar>
 							<Title id="risksCountTitle" text="" level="H2"/>
 							<ToolbarSpacer/>
-							<Button icon="sap-icon://sort" tooltip="{i18n>filterTooltip}" press="onSortPress"/>
+							<Button icon="sap-icon://sort" tooltip="{i18n>sortTooltip}" press="onSortPress"/>
 						</Toolbar>
 					</headerToolbar>
 					<columns>
@@ -71,6 +71,7 @@
 						<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colProbability}"/></Column>
 						<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
 						<Column><Text text="{i18n>colRiskStatus}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colMitigation}"/></Column>
 					</columns>
 					<items>
 						<ColumnListItem type="Navigation" press="onRiskPress">
@@ -88,6 +89,7 @@
 									text="{portfolio>status}"
 									state="{ path: 'portfolio>status', formatter: 'F.riskStatusState' }"
 								/>
+								<Text text="{portfolio>mitigation}" wrapping="true" maxLines="2"/>
 							</cells>
 						</ColumnListItem>
 					</items>

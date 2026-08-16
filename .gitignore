@@ -27,6 +27,7 @@ coverage/
 
 # Ad-hoc verification screenshots (curated copies live in docs/screenshots/)
 /screenshots/
+/review-screenshots/
 
 # Environment (none required by this app; ignored defensively)
 .env

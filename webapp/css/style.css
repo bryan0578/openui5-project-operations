@@ -65,10 +65,11 @@
 	font-weight: 700;
 }
 
-/* Looser row rhythm for the milestone/activity lists so items are easy to scan
-   without leaning on heavy borders. */
+/* Looser row rhythm for the milestone/activity/team lists so items are easy to
+   scan without leaning on heavy borders. */
 .opMilestoneList .sapMLIB,
-.opActivityList .sapMLIB {
+.opActivityList .sapMLIB,
+.opTeamList .sapMLIB {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
 }

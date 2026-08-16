@@ -91,6 +91,8 @@
 						<headerToolbar>
 							<Toolbar>
 								<Title text="{i18n>sectionProjectHealth}" level="H2"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>viewAllProjects}" type="Transparent" press="onViewAllProjectsPress"/>
 							</Toolbar>
 						</headerToolbar>
 						<HBox wrap="Wrap" class="opStatRow">
