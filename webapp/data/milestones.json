@@ -1,0 +1,33 @@
+{
+  "milestones": [
+    { "milestoneId": "MS-3001", "projectId": "PRJ-2001", "name": "Finance Module Configuration Complete", "ownerId": "PPL-06", "dueDate": "2026-03-15", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3002", "projectId": "PRJ-2001", "name": "Plant Data Integration Go-Live", "ownerId": "PPL-16", "dueDate": "2026-07-30", "status": "In Progress", "completionPercent": 70 },
+    { "milestoneId": "MS-3003", "projectId": "PRJ-2001", "name": "Site 3 Cutover Rehearsal", "ownerId": "PPL-01", "dueDate": "2026-09-20", "status": "Not Started", "completionPercent": 0, "riskFlag": true },
+    { "milestoneId": "MS-3004", "projectId": "PRJ-2001", "name": "Final Production Cutover", "ownerId": "PPL-01", "dueDate": "2026-12-10", "status": "Not Started", "completionPercent": 0 },
+
+    { "milestoneId": "MS-3005", "projectId": "PRJ-2002", "name": "Storefront UX Design Sign-off", "ownerId": "PPL-15", "dueDate": "2026-02-28", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3006", "projectId": "PRJ-2002", "name": "Order Management Integration Test", "ownerId": "PPL-09", "dueDate": "2026-08-05", "status": "In Progress", "completionPercent": 85 },
+    { "milestoneId": "MS-3007", "projectId": "PRJ-2002", "name": "Loyalty Services Beta Launch", "ownerId": "PPL-02", "dueDate": "2026-09-15", "status": "Not Started", "completionPercent": 0, "riskFlag": true },
+    { "milestoneId": "MS-3008", "projectId": "PRJ-2002", "name": "General Availability Release", "ownerId": "PPL-02", "dueDate": "2026-10-25", "status": "Not Started", "completionPercent": 0 },
+
+    { "milestoneId": "MS-3009", "projectId": "PRJ-2003", "name": "Legacy Warehouse Decommission Plan Approved", "ownerId": "PPL-07", "dueDate": "2026-01-15", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3010", "projectId": "PRJ-2003", "name": "Regulatory Reporting Model Validation", "ownerId": "PPL-17", "dueDate": "2026-07-01", "status": "In Progress", "completionPercent": 50 },
+    { "milestoneId": "MS-3011", "projectId": "PRJ-2003", "name": "Field Telemetry Cutover", "ownerId": "PPL-03", "dueDate": "2026-08-28", "status": "Not Started", "completionPercent": 0, "riskFlag": true },
+    { "milestoneId": "MS-3012", "projectId": "PRJ-2003", "name": "Executive Reporting Rollout", "ownerId": "PPL-03", "dueDate": "2026-09-25", "status": "Not Started", "completionPercent": 0 },
+
+    { "milestoneId": "MS-3013", "projectId": "PRJ-2004", "name": "Account Servicing Module UAT", "ownerId": "PPL-11", "dueDate": "2026-06-10", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3014", "projectId": "PRJ-2004", "name": "Advisor Scheduling Integration", "ownerId": "PPL-09", "dueDate": "2026-09-05", "status": "In Progress", "completionPercent": 60 },
+    { "milestoneId": "MS-3015", "projectId": "PRJ-2004", "name": "Secure Document Exchange Penetration Test", "ownerId": "PPL-04", "dueDate": "2026-08-22", "status": "Not Started", "completionPercent": 0, "riskFlag": true },
+    { "milestoneId": "MS-3016", "projectId": "PRJ-2004", "name": "Portal General Availability", "ownerId": "PPL-04", "dueDate": "2026-11-13", "status": "Not Started", "completionPercent": 0 },
+
+    { "milestoneId": "MS-3017", "projectId": "PRJ-2005", "name": "Data Governance Sign-off", "ownerId": "PPL-05", "dueDate": "2026-05-01", "status": "Not Started", "completionPercent": 0 },
+    { "milestoneId": "MS-3018", "projectId": "PRJ-2005", "name": "Scheduling Interface Build", "ownerId": "PPL-06", "dueDate": "2026-12-01", "status": "Not Started", "completionPercent": 0 },
+
+    { "milestoneId": "MS-3019", "projectId": "PRJ-2006", "name": "Pilot Region Go-Live", "ownerId": "PPL-08", "dueDate": "2025-06-15", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3020", "projectId": "PRJ-2006", "name": "Full Fleet Rollout Complete", "ownerId": "PPL-02", "dueDate": "2025-10-31", "status": "Completed", "completionPercent": 100 },
+
+    { "milestoneId": "MS-3021", "projectId": "PRJ-2007", "name": "Supplier Onboarding Framework Complete", "ownerId": "PPL-07", "dueDate": "2026-04-10", "status": "Completed", "completionPercent": 100 },
+    { "milestoneId": "MS-3022", "projectId": "PRJ-2007", "name": "Sourcing Module Integration Test", "ownerId": "PPL-10", "dueDate": "2026-08-01", "status": "In Progress", "completionPercent": 55 },
+    { "milestoneId": "MS-3023", "projectId": "PRJ-2007", "name": "Business Unit Rollout Wave 1", "ownerId": "PPL-01", "dueDate": "2026-09-04", "status": "Not Started", "completionPercent": 0, "riskFlag": true }
+  ]
+}

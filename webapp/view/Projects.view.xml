@@ -1,0 +1,115 @@
+<mvc:View
+	controllerName="projectops.controller.Projects"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{F: 'projectops/util/Formatter'}"
+	displayBlock="true"
+>
+	<Page id="projectsPage" showHeader="true" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="projectops.view.fragment.ShellHeader" type="XML"/>
+		</customHeader>
+		<content>
+			<core:Fragment fragmentName="projectops.view.fragment.SectionNav" type="XML"/>
+
+			<VBox class="sapUiResponsiveContentPadding opPageContent">
+				<Title text="{i18n>projectsTitle}" level="H1" class="sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+
+				<Toolbar class="opFilterBar sapUiSmallMarginBottom">
+					<SearchField
+						id="searchField"
+						width="16rem"
+						placeholder="{i18n>projectsSearchPlaceholder}"
+						liveChange="onFilterChange"
+					/>
+					<Label text="{i18n>projectsFilterStatus}" labelFor="statusFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="statusFilter" width="9rem" change="onFilterChange">
+						<core:Item key="" text="{i18n>allOption}"/>
+						<core:Item key="Active" text="Active"/>
+						<core:Item key="On Hold" text="On Hold"/>
+						<core:Item key="Completed" text="Completed"/>
+						<core:Item key="Cancelled" text="Cancelled"/>
+					</Select>
+					<Label text="{i18n>projectsFilterHealth}" labelFor="healthFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="healthFilter" width="9rem" change="onFilterChange">
+						<core:Item key="" text="{i18n>allOption}"/>
+						<core:Item key="Healthy" text="{i18n>healthHealthy}"/>
+						<core:Item key="Attention" text="{i18n>healthAttention}"/>
+						<core:Item key="At Risk" text="{i18n>healthAtRisk}"/>
+					</Select>
+					<Button
+						text="{i18n>clearFilters}"
+						icon="sap-icon://clear-filter"
+						type="Transparent"
+						press="onClearFilters"
+					/>
+				</Toolbar>
+
+				<Table
+					id="projectsTable"
+					items="{portfolio>/projects}"
+					sticky="ColumnHeaders,HeaderToolbar"
+					noDataText=" "
+				>
+					<headerToolbar>
+						<Toolbar>
+							<Title id="projectsCountTitle" text="" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://sort" tooltip="{i18n>filterTooltip}" press="onSortPress"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="{i18n>colProjectName}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colCustomer}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colProjectManager}"/></Column>
+						<Column><Text text="{i18n>colStatus}"/></Column>
+						<Column><Text text="{i18n>colHealth}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="{i18n>colStartDate}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="{i18n>colTargetDate}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End"><Text text="{i18n>colCompletion}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End"><Text text="{i18n>colOpenRisks}"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="onProjectPress">
+							<cells>
+								<ObjectIdentifier title="{portfolio>name}" text="{portfolio>projectId}"/>
+								<Text text="{portfolio>customerName}"/>
+								<Text text="{portfolio>projectManagerName}"/>
+								<ObjectStatus
+									text="{portfolio>status}"
+									state="{ path: 'portfolio>status', formatter: 'F.projectStatusState' }"
+								/>
+								<ObjectStatus
+									text="{portfolio>health}"
+									state="{ path: 'portfolio>health', formatter: 'F.healthState' }"
+									icon="{= ${portfolio>health} === 'At Risk' ? 'sap-icon://error' : (${portfolio>health} === 'Attention' ? 'sap-icon://alert' : 'sap-icon://sys-enter-2') }"
+								/>
+								<Text text="{ path: 'portfolio>startDate', formatter: 'F.formatDate' }"/>
+								<Text text="{ path: 'portfolio>targetDate', formatter: 'F.formatDate' }"/>
+								<ObjectNumber number="{portfolio>completionPercent}" unit="%"/>
+								<ObjectNumber
+									number="{portfolio>openRisksCount}"
+									state="{= ${portfolio>openRisksCount} > 0 ? 'Error' : 'None' }"
+								/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+				<IllustratedMessage
+					id="projectsEmptyState"
+					visible="false"
+					class="opEmptyState"
+					illustrationType="sapIllus-NoSearchResults"
+					title="{i18n>noProjectsFoundTitle}"
+					description="{i18n>noProjectsFoundDescription}"
+				>
+					<additionalContent>
+						<Button text="{i18n>clearFilters}" press="onClearFilters"/>
+					</additionalContent>
+				</IllustratedMessage>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

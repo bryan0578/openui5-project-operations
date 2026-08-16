@@ -1,0 +1,13 @@
+<mvc:View
+	controllerName="projectops.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+>
+	<App
+		id="app"
+		busy="{appView>/busy}"
+		busyIndicatorDelay="{appView>/delay}"
+		autoFocus="false"
+	/>
+</mvc:View>

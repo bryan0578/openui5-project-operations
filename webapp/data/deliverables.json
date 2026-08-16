@@ -1,0 +1,28 @@
+{
+  "deliverables": [
+    { "deliverableId": "DLV-4001", "projectId": "PRJ-2001", "name": "Finance Chart of Accounts Blueprint", "ownerId": "PPL-10", "status": "Accepted", "dueDate": "2026-02-10" },
+    { "deliverableId": "DLV-4002", "projectId": "PRJ-2001", "name": "Plant Data Integration Design Spec", "ownerId": "PPL-16", "status": "In Review", "dueDate": "2026-08-20" },
+    { "deliverableId": "DLV-4003", "projectId": "PRJ-2001", "name": "Cutover Runbook — Site 3", "ownerId": "PPL-01", "status": "Draft", "dueDate": "2026-09-10" },
+
+    { "deliverableId": "DLV-4004", "projectId": "PRJ-2002", "name": "Storefront Design System", "ownerId": "PPL-15", "status": "Accepted", "dueDate": "2026-03-05" },
+    { "deliverableId": "DLV-4005", "projectId": "PRJ-2002", "name": "Order Management Test Summary", "ownerId": "PPL-13", "status": "In Review", "dueDate": "2026-08-18" },
+    { "deliverableId": "DLV-4006", "projectId": "PRJ-2002", "name": "Loyalty Services API Contract", "ownerId": "PPL-09", "status": "Draft", "dueDate": "2026-09-01" },
+
+    { "deliverableId": "DLV-4007", "projectId": "PRJ-2003", "name": "Data Model Governance Charter", "ownerId": "PPL-07", "status": "Accepted", "dueDate": "2026-01-30" },
+    { "deliverableId": "DLV-4008", "projectId": "PRJ-2003", "name": "Regulatory Reporting Validation Report", "ownerId": "PPL-17", "status": "In Review", "dueDate": "2026-08-25" },
+    { "deliverableId": "DLV-4009", "projectId": "PRJ-2003", "name": "Field Telemetry Cutover Plan", "ownerId": "PPL-18", "status": "Draft", "dueDate": "2026-09-05" },
+
+    { "deliverableId": "DLV-4010", "projectId": "PRJ-2004", "name": "Account Servicing UAT Signoff", "ownerId": "PPL-11", "status": "Accepted", "dueDate": "2026-06-15" },
+    { "deliverableId": "DLV-4011", "projectId": "PRJ-2004", "name": "Advisor Scheduling Integration Spec", "ownerId": "PPL-09", "status": "In Review", "dueDate": "2026-08-30" },
+    { "deliverableId": "DLV-4012", "projectId": "PRJ-2004", "name": "Portal Security Assessment", "ownerId": "PPL-18", "status": "Draft", "dueDate": "2026-08-22" },
+
+    { "deliverableId": "DLV-4013", "projectId": "PRJ-2005", "name": "Integration Backbone Architecture", "ownerId": "PPL-06", "status": "In Review", "dueDate": "2026-04-20" },
+    { "deliverableId": "DLV-4014", "projectId": "PRJ-2005", "name": "Data Governance Compliance Pack", "ownerId": "PPL-05", "status": "Draft", "dueDate": "2026-08-28" },
+
+    { "deliverableId": "DLV-4015", "projectId": "PRJ-2006", "name": "Field Service Training Materials", "ownerId": "PPL-14", "status": "Accepted", "dueDate": "2025-09-15" },
+    { "deliverableId": "DLV-4016", "projectId": "PRJ-2006", "name": "Hypercare Support Handover", "ownerId": "PPL-02", "status": "Accepted", "dueDate": "2025-11-15" },
+
+    { "deliverableId": "DLV-4017", "projectId": "PRJ-2007", "name": "Supplier Onboarding Playbook", "ownerId": "PPL-07", "status": "Accepted", "dueDate": "2026-04-05" },
+    { "deliverableId": "DLV-4018", "projectId": "PRJ-2007", "name": "Sourcing Module Integration Test Plan", "ownerId": "PPL-10", "status": "In Review", "dueDate": "2026-08-10" }
+  ]
+}

@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<ViewSettingsDialog
+		id="risksSortDialog"
+		confirm=".onSortConfirm"
+	>
+		<sortItems>
+			<ViewSettingsItem key="title" text="{i18n>colRisk}" selected="true"/>
+			<ViewSettingsItem key="severity" text="{i18n>colSeverity}"/>
+			<ViewSettingsItem key="identifiedDate" text="{i18n>colIdentifiedDate}"/>
+			<ViewSettingsItem key="projectName" text="{i18n>colProject}"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,22 @@
+{
+  "people": [
+    { "personId": "PPL-01", "name": "Elena Vasquez", "role": "Project Manager", "initials": "EV" },
+    { "personId": "PPL-02", "name": "Marcus Whitfield", "role": "Project Manager", "initials": "MW" },
+    { "personId": "PPL-03", "name": "Priya Anand", "role": "Project Manager", "initials": "PA" },
+    { "personId": "PPL-04", "name": "Daniel Osei", "role": "Project Manager", "initials": "DO" },
+    { "personId": "PPL-05", "name": "Rachel Kim", "role": "Project Manager", "initials": "RK" },
+    { "personId": "PPL-06", "name": "Tomas Berger", "role": "Solution Architect", "initials": "TB" },
+    { "personId": "PPL-07", "name": "Naomi Fischer", "role": "Solution Architect", "initials": "NF" },
+    { "personId": "PPL-08", "name": "Oliver Grant", "role": "Technical Lead", "initials": "OG" },
+    { "personId": "PPL-09", "name": "Sofia Marchetti", "role": "Technical Lead", "initials": "SM" },
+    { "personId": "PPL-10", "name": "Ben Okafor", "role": "Business Analyst", "initials": "BO" },
+    { "personId": "PPL-11", "name": "Grace Lindqvist", "role": "Business Analyst", "initials": "GL" },
+    { "personId": "PPL-12", "name": "Jamal Reyes", "role": "QA Lead", "initials": "JR" },
+    { "personId": "PPL-13", "name": "Hannah Voss", "role": "QA Lead", "initials": "HV" },
+    { "personId": "PPL-14", "name": "Leo Andersson", "role": "Change Manager", "initials": "LA" },
+    { "personId": "PPL-15", "name": "Mia Thackeray", "role": "UX Designer", "initials": "MT" },
+    { "personId": "PPL-16", "name": "Victor Nakamura", "role": "Integration Developer", "initials": "VN" },
+    { "personId": "PPL-17", "name": "Isla Fontaine", "role": "Data Engineer", "initials": "IF" },
+    { "personId": "PPL-18", "name": "Aiden Brooks", "role": "Security Lead", "initials": "AB" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "openui5-project-operations",
+  "version": "1.0.0",
+  "description": "Project Operations - a portfolio-management OpenUI5 application demonstrating enterprise Fiori-style UI engineering. Fictional data only; no SAP BTP required.",
+  "license": "MIT",
+  "private": true,
+  "author": "Bryan Cash",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryan0578/openui5-project-operations.git"
+  },
+  "homepage": "https://github.com/bryan0578/openui5-project-operations#readme",
+  "bugs": {
+    "url": "https://github.com/bryan0578/openui5-project-operations/issues"
+  },
+  "keywords": [
+    "openui5",
+    "sapui5",
+    "fiori",
+    "portfolio",
+    "project-management",
+    "ui5-tooling"
+  ],
+  "scripts": {
+    "start": "ui5 serve --open index.html",
+    "build": "ui5 build self-contained --all --clean-dest --dest dist && node scripts/postbuild.js",
+    "lint": "eslint webapp",
+    "lint:fix": "eslint webapp --fix",
+    "test": "karma start karma.conf.js --single-run",
+    "test:watch": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.62",
+    "eslint": "^9.14.0",
+    "globals": "^15.11.0",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-ui5": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

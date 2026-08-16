@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<ViewSettingsDialog
+		id="milestonesSortDialog"
+		confirm=".onSortConfirm"
+	>
+		<sortItems>
+			<ViewSettingsItem key="dueDate" text="{i18n>colDueDate}" selected="true"/>
+			<ViewSettingsItem key="name" text="{i18n>colMilestone}"/>
+			<ViewSettingsItem key="projectName" text="{i18n>colProject}"/>
+			<ViewSettingsItem key="completionPercent" text="{i18n>colCompletion}"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

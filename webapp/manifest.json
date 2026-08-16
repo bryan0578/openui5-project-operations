@@ -1,0 +1,128 @@
+{
+	"_version": "1.60.0",
+	"sap.app": {
+		"id": "projectops",
+		"type": "application",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": ["en"],
+			"fallbackLocale": "en"
+		},
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": ["portfolio", "project management", "openui5"]
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://project-definition-triangle-2"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "projectops.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.151.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.layout": {},
+				"sap.uxap": {}
+			}
+		},
+		"handleValidation": false,
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "projectops.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true,
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "dashboard",
+					"target": "dashboard"
+				},
+				{
+					"pattern": "projects:?query:",
+					"name": "projects",
+					"target": "projects"
+				},
+				{
+					"pattern": "projects/{projectId}",
+					"name": "projectDetail",
+					"target": "projectDetail"
+				},
+				{
+					"pattern": "risks:?query:",
+					"name": "risks",
+					"target": "risks"
+				},
+				{
+					"pattern": "milestones:?query:",
+					"name": "milestones",
+					"target": "milestones"
+				}
+			],
+			"targets": {
+				"dashboard": {
+					"viewName": "projectops.view.Dashboard",
+					"viewId": "dashboard"
+				},
+				"projects": {
+					"viewName": "projectops.view.Projects",
+					"viewId": "projects"
+				},
+				"projectDetail": {
+					"viewName": "projectops.view.ProjectDetail",
+					"viewId": "projectDetail"
+				},
+				"risks": {
+					"viewName": "projectops.view.Risks",
+					"viewId": "risks"
+				},
+				"milestones": {
+					"viewName": "projectops.view.Milestones",
+					"viewId": "milestones"
+				},
+				"notFound": {
+					"viewName": "projectops.view.NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

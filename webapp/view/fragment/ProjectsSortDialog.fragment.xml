@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<ViewSettingsDialog
+		id="projectsSortDialog"
+		confirm=".onSortConfirm"
+	>
+		<sortItems>
+			<ViewSettingsItem key="name" text="{i18n>colProjectName}" selected="true"/>
+			<ViewSettingsItem key="targetDate" text="{i18n>colTargetDate}"/>
+			<ViewSettingsItem key="startDate" text="{i18n>colStartDate}"/>
+			<ViewSettingsItem key="completionPercent" text="{i18n>colCompletion}"/>
+			<ViewSettingsItem key="openRisksCount" text="{i18n>colOpenRisks}"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

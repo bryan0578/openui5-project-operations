@@ -1,0 +1,100 @@
+<mvc:View
+	controllerName="projectops.controller.Milestones"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{F: 'projectops/util/Formatter'}"
+	displayBlock="true"
+>
+	<Page id="milestonesPage" showHeader="true" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="projectops.view.fragment.ShellHeader" type="XML"/>
+		</customHeader>
+		<content>
+			<core:Fragment fragmentName="projectops.view.fragment.SectionNav" type="XML"/>
+
+			<VBox class="sapUiResponsiveContentPadding opPageContent">
+				<Title text="{i18n>milestonesTitle}" level="H1" class="sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+
+				<Toolbar class="opFilterBar sapUiSmallMarginBottom">
+					<SearchField
+						id="searchField"
+						width="16rem"
+						placeholder="{i18n>milestonesSearchPlaceholder}"
+						liveChange="onFilterChange"
+					/>
+					<Label text="{i18n>milestonesFilterProject}" labelFor="projectFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="projectFilter" width="12rem" change="onFilterChange" forceSelection="false">
+						<core:Item key="" text="{i18n>allOption}"/>
+					</Select>
+					<Label text="{i18n>milestonesFilterStatus}" labelFor="milestoneStatusFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="milestoneStatusFilter" width="9rem" change="onFilterChange">
+						<core:Item key="" text="{i18n>allOption}"/>
+						<core:Item key="Completed" text="{i18n>milestoneStatusCompleted}"/>
+						<core:Item key="Upcoming" text="{i18n>milestoneStatusUpcoming}"/>
+						<core:Item key="AtRisk" text="{i18n>milestoneStatusAtRisk}"/>
+						<core:Item key="Overdue" text="{i18n>milestoneStatusOverdue}"/>
+					</Select>
+					<Button
+						text="{i18n>clearFilters}"
+						icon="sap-icon://clear-filter"
+						type="Transparent"
+						press="onClearFilters"
+					/>
+				</Toolbar>
+
+				<Table
+					id="milestonesTable"
+					items="{portfolio>/milestones}"
+					sticky="ColumnHeaders,HeaderToolbar"
+					noDataText=" "
+				>
+					<headerToolbar>
+						<Toolbar>
+							<Title id="milestonesCountTitle" text="" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://sort" tooltip="{i18n>filterTooltip}" press="onSortPress"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="{i18n>colMilestone}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colProject}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
+						<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colDueDate}"/></Column>
+						<Column hAlign="End" minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colCompletion}"/></Column>
+						<Column><Text text="{i18n>colMilestoneStatus}"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="onMilestonePress">
+							<cells>
+								<Text text="{portfolio>name}"/>
+								<Text text="{portfolio>projectName}"/>
+								<Text text="{portfolio>ownerName}"/>
+								<Text text="{ path: 'portfolio>dueDate', formatter: 'F.formatDate' }"/>
+								<ObjectNumber number="{portfolio>completionPercent}" unit="%"/>
+								<ObjectStatus
+									text="{ path: 'portfolio>derivedStatus', formatter: '.formatMilestoneStatusText' }"
+									state="{ path: 'portfolio>derivedStatus', formatter: 'F.milestoneStatusState' }"
+									icon="{ path: 'portfolio>derivedStatus', formatter: 'F.milestoneStatusIcon' }"
+								/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+				<IllustratedMessage
+					id="milestonesEmptyState"
+					visible="false"
+					class="opEmptyState"
+					illustrationType="sapIllus-NoSearchResults"
+					title="{i18n>noMilestonesFoundTitle}"
+					description="{i18n>noMilestonesFoundDescription}"
+				>
+					<additionalContent>
+						<Button text="{i18n>clearFilters}" press="onClearFilters"/>
+					</additionalContent>
+				</IllustratedMessage>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

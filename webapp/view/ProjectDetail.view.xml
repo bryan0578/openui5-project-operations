@@ -1,0 +1,233 @@
+<mvc:View
+	controllerName="projectops.controller.ProjectDetail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:uxap="sap.uxap"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"
+	core:require="{F: 'projectops/util/Formatter'}"
+	displayBlock="true"
+>
+	<Page id="projectDetailPage" showHeader="true" showNavButton="true" navButtonPress="onBackPress" title="{i18n>projectDetailTitle}">
+		<content>
+			<uxap:ObjectPageLayout id="objectPage" visible="{= !${ui>/notFound} }" useIconTabBar="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageDynamicHeaderTitle>
+						<uxap:breadcrumbs>
+							<Breadcrumbs currentLocationText="{detail>/name}">
+								<links>
+									<Link text="{i18n>navDashboard}" press="onDashboardLinkPress"/>
+									<Link text="{i18n>navProjects}" press="onBackPress"/>
+								</links>
+							</Breadcrumbs>
+						</uxap:breadcrumbs>
+						<uxap:heading>
+							<Title text="{detail>/name}" wrapping="true"/>
+						</uxap:heading>
+						<uxap:expandedContent>
+							<ObjectStatus text="{detail>/status}" state="{ path: 'detail>/status', formatter: 'F.projectStatusState' }" class="sapUiSmallMarginEnd"/>
+							<ObjectStatus text="{detail>/health}" state="{ path: 'detail>/health', formatter: 'F.healthState' }"/>
+						</uxap:expandedContent>
+						<uxap:snappedContent>
+							<ObjectStatus text="{detail>/status}" state="{ path: 'detail>/status', formatter: 'F.projectStatusState' }" class="sapUiSmallMarginEnd"/>
+							<ObjectStatus text="{detail>/health}" state="{ path: 'detail>/health', formatter: 'F.healthState' }"/>
+						</uxap:snappedContent>
+					</uxap:ObjectPageDynamicHeaderTitle>
+				</uxap:headerTitle>
+
+				<uxap:headerContent>
+					<layout:Grid defaultSpan="XL3 L3 M6 S12" class="opPageContent">
+						<VBox>
+							<Text text="{i18n>overviewCustomer}" class="opStatLabel"/>
+							<Text text="{detail>/customerName}"/>
+						</VBox>
+						<VBox>
+							<Text text="{i18n>overviewProjectManager}" class="opStatLabel"/>
+							<Text text="{detail>/projectManagerName}"/>
+						</VBox>
+						<VBox>
+							<Text text="{i18n>overviewStartDate}" class="opStatLabel"/>
+							<Text text="{ path: 'detail>/startDate', formatter: 'F.formatDate' }"/>
+						</VBox>
+						<VBox>
+							<Text text="{i18n>overviewTargetDate}" class="opStatLabel"/>
+							<Text text="{ path: 'detail>/targetDate', formatter: 'F.formatDate' }"/>
+						</VBox>
+						<VBox>
+							<Text text="{i18n>overviewCompletion}" class="opStatLabel"/>
+							<ObjectNumber number="{detail>/completionPercent}" unit="%"/>
+						</VBox>
+						<VBox>
+							<Text text="{i18n>overviewOpenRisks}" class="opStatLabel"/>
+							<ObjectNumber
+								number="{detail>/openRisksCount}"
+								state="{= ${detail>/openRisksCount} > 0 ? 'Error' : 'None' }"
+							/>
+						</VBox>
+					</layout:Grid>
+				</uxap:headerContent>
+
+				<uxap:sections>
+
+					<uxap:ObjectPageSection title="{i18n>tabOverview}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<form:SimpleForm layout="ResponsiveGridLayout" editable="false" labelSpanM="3" labelSpanL="3" adjustLabelSpan="false">
+										<Label text="{i18n>overviewDescription}"/>
+										<Text text="{detail>/description}"/>
+									</form:SimpleForm>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+					<uxap:ObjectPageSection title="{i18n>tabTeam}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<List items="{detail>/team}" noDataText="{i18n>noTeamMembers}">
+										<StandardListItem
+											title="{detail>name}"
+											description="{detail>role}"
+											icon="sap-icon://person-placeholder"
+										/>
+									</List>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+					<uxap:ObjectPageSection title="{i18n>tabMilestones}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<Table items="{detail>/milestones}" noDataText="{i18n>noMilestonesForProject}">
+										<columns>
+											<Column><Text text="{i18n>colMilestone}"/></Column>
+											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colDueDate}"/></Column>
+											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colCompletion}"/></Column>
+											<Column><Text text="{i18n>colMilestoneStatus}"/></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Text text="{detail>name}"/>
+													<Text text="{ path: 'detail>dueDate', formatter: 'F.formatDate' }"/>
+													<ObjectNumber number="{detail>completionPercent}" unit="%"/>
+													<ObjectStatus
+														text="{ path: 'detail>derivedStatus', formatter: '.formatMilestoneStatusText' }"
+														state="{ path: 'detail>derivedStatus', formatter: 'F.milestoneStatusState' }"
+														icon="{ path: 'detail>derivedStatus', formatter: 'F.milestoneStatusIcon' }"
+													/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+					<uxap:ObjectPageSection title="{i18n>tabDeliverables}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<Table items="{detail>/deliverables}" noDataText="{i18n>noDeliverablesForProject}">
+										<columns>
+											<Column><Text text="{i18n>colDeliverable}"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner2}"/></Column>
+											<Column hAlign="End" minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colDueDate}"/></Column>
+											<Column><Text text="{i18n>colDeliverableStatus}"/></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Text text="{detail>name}"/>
+													<Text text="{detail>ownerName}"/>
+													<Text text="{ path: 'detail>dueDate', formatter: 'F.formatDate' }"/>
+													<ObjectStatus
+														text="{detail>status}"
+														state="{ path: 'detail>status', formatter: 'F.deliverableStatusState' }"
+													/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+					<uxap:ObjectPageSection title="{i18n>tabRisks}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<Table items="{detail>/risks}" noDataText="{i18n>noRisksForProject}">
+										<columns>
+											<Column><Text text="{i18n>colRisk}"/></Column>
+											<Column><Text text="{i18n>colSeverity}"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
+											<Column><Text text="{i18n>colRiskStatus}"/></Column>
+											<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colMitigation}"/></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Text text="{detail>title}"/>
+													<ObjectStatus
+														text="{detail>severity}"
+														state="{ path: 'detail>severity', formatter: 'F.riskSeverityState' }"
+														icon="{ path: 'detail>severity', formatter: 'F.riskSeverityIcon' }"
+													/>
+													<Text text="{detail>ownerName}"/>
+													<ObjectStatus
+														text="{detail>status}"
+														state="{ path: 'detail>status', formatter: 'F.riskStatusState' }"
+													/>
+													<Text text="{detail>mitigation}" wrapping="true" maxLines="3"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+					<uxap:ObjectPageSection title="{i18n>tabActivity}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<List items="{detail>/activities}" noDataText="{i18n>noActivityForProject}">
+										<StandardListItem
+											title="{detail>description}"
+											info="{ path: 'detail>timestamp', formatter: 'F.formatDateTime' }"
+											icon="sap-icon://activity-items"
+											wrapping="true"
+										/>
+									</List>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+
+			<IllustratedMessage
+				id="projectNotFoundState"
+				visible="{ui>/notFound}"
+				class="opEmptyState"
+				illustrationType="sapIllus-PageNotFound"
+				title="{i18n>projectNotFoundTitle}"
+				description="{ui>/notFoundDescription}"
+			>
+				<additionalContent>
+					<Button text="{i18n>backToProjectsList}" press="onBackPress"/>
+				</additionalContent>
+			</IllustratedMessage>
+		</content>
+	</Page>
+</mvc:View>

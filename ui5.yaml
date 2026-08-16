@@ -1,0 +1,14 @@
+specVersion: "4.0"
+metadata:
+  name: openui5-project-operations
+type: application
+framework:
+  name: OpenUI5
+  version: "1.151.0"
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: sap.f
+    - name: sap.ui.layout
+    - name: sap.uxap
+    - name: themelib_sap_horizon

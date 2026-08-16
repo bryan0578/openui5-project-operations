@@ -1,0 +1,111 @@
+<mvc:View
+	controllerName="projectops.controller.Risks"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	core:require="{F: 'projectops/util/Formatter'}"
+	displayBlock="true"
+>
+	<Page id="risksPage" showHeader="true" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="projectops.view.fragment.ShellHeader" type="XML"/>
+		</customHeader>
+		<content>
+			<core:Fragment fragmentName="projectops.view.fragment.SectionNav" type="XML"/>
+
+			<VBox class="sapUiResponsiveContentPadding opPageContent">
+				<Title text="{i18n>risksTitle}" level="H1" class="sapUiTinyMarginTop sapUiTinyMarginBottom"/>
+
+				<Toolbar class="opFilterBar sapUiSmallMarginBottom">
+					<SearchField
+						id="searchField"
+						width="16rem"
+						placeholder="{i18n>risksSearchPlaceholder}"
+						liveChange="onFilterChange"
+					/>
+					<Label text="{i18n>risksFilterProject}" labelFor="projectFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="projectFilter" width="12rem" change="onFilterChange" forceSelection="false">
+						<core:Item key="" text="{i18n>allOption}"/>
+					</Select>
+					<Label text="{i18n>risksFilterSeverity}" labelFor="severityFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="severityFilter" width="9rem" change="onFilterChange">
+						<core:Item key="" text="{i18n>allOption}"/>
+						<core:Item key="Low" text="{i18n>riskSeverityLow}"/>
+						<core:Item key="Medium" text="{i18n>riskSeverityMedium}"/>
+						<core:Item key="High" text="{i18n>riskSeverityHigh}"/>
+						<core:Item key="Critical" text="{i18n>riskSeverityCritical}"/>
+					</Select>
+					<Label text="{i18n>risksFilterStatus}" labelFor="riskStatusFilter" class="sapUiTinyMarginBegin"/>
+					<Select id="riskStatusFilter" width="9rem" change="onStatusFilterChange">
+						<core:Item key="" text="{i18n>allOption}"/>
+						<core:Item key="Open" text="{i18n>riskStatusOpen}"/>
+						<core:Item key="Mitigating" text="{i18n>riskStatusMitigating}"/>
+						<core:Item key="Monitoring" text="{i18n>riskStatusMonitoring}"/>
+						<core:Item key="Closed" text="{i18n>riskStatusClosed}"/>
+					</Select>
+					<Button
+						text="{i18n>clearFilters}"
+						icon="sap-icon://clear-filter"
+						type="Transparent"
+						press="onClearFilters"
+					/>
+				</Toolbar>
+
+				<Table
+					id="risksTable"
+					items="{portfolio>/risks}"
+					sticky="ColumnHeaders,HeaderToolbar"
+					noDataText=" "
+				>
+					<headerToolbar>
+						<Toolbar>
+							<Title id="risksCountTitle" text="" level="H2"/>
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://sort" tooltip="{i18n>filterTooltip}" press="onSortPress"/>
+						</Toolbar>
+					</headerToolbar>
+					<columns>
+						<Column><Text text="{i18n>colRisk}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colProject}"/></Column>
+						<Column><Text text="{i18n>colSeverity}"/></Column>
+						<Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>colProbability}"/></Column>
+						<Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>colOwner}"/></Column>
+						<Column><Text text="{i18n>colRiskStatus}"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press="onRiskPress">
+							<cells>
+								<ObjectIdentifier title="{portfolio>title}" text="{portfolio>riskId}"/>
+								<Text text="{portfolio>projectName}"/>
+								<ObjectStatus
+									text="{portfolio>severity}"
+									state="{ path: 'portfolio>severity', formatter: 'F.riskSeverityState' }"
+									icon="{ path: 'portfolio>severity', formatter: 'F.riskSeverityIcon' }"
+								/>
+								<Text text="{portfolio>probability}"/>
+								<Text text="{portfolio>ownerName}"/>
+								<ObjectStatus
+									text="{portfolio>status}"
+									state="{ path: 'portfolio>status', formatter: 'F.riskStatusState' }"
+								/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+
+				<IllustratedMessage
+					id="risksEmptyState"
+					visible="false"
+					class="opEmptyState"
+					illustrationType="sapIllus-NoSearchResults"
+					title="{i18n>noRisksFoundTitle}"
+					description="{i18n>noRisksFoundDescription}"
+				>
+					<additionalContent>
+						<Button text="{i18n>clearFilters}" press="onClearFilters"/>
+					</additionalContent>
+				</IllustratedMessage>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

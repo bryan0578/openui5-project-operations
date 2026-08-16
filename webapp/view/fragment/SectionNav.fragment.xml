@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<IconTabHeader
+		id="sectionNav"
+		selectedKey="{appView>/navKey}"
+		select=".onNavTabSelect"
+		class="sapUiResponsiveContentPadding opSectionNav"
+	>
+		<items>
+			<IconTabFilter key="dashboard" text="{i18n>navDashboard}" icon="sap-icon://home" />
+			<IconTabFilter key="projects" text="{i18n>navProjects}" icon="sap-icon://folder-blank" />
+			<IconTabFilter key="risks" text="{i18n>navRisks}" icon="sap-icon://alert" />
+			<IconTabFilter key="milestones" text="{i18n>navMilestones}" icon="sap-icon://flag" />
+		</items>
+	</IconTabHeader>
+</core:FragmentDefinition>

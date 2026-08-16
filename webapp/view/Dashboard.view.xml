@@ -1,0 +1,251 @@
+<mvc:View
+	controllerName="projectops.controller.Dashboard"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout"
+	core:require="{F: 'projectops/util/Formatter'}"
+	displayBlock="true"
+>
+	<Page id="dashboardPage" showHeader="true" enableScrolling="true">
+		<customHeader>
+			<core:Fragment fragmentName="projectops.view.fragment.ShellHeader" type="XML"/>
+		</customHeader>
+		<content>
+			<core:Fragment fragmentName="projectops.view.fragment.SectionNav" type="XML"/>
+
+			<VBox class="sapUiResponsiveContentPadding opPageContent">
+				<Title text="{i18n>dashboardTitle}" level="H1" class="sapUiTinyMarginTop"/>
+				<Text text="{i18n>dashboardSubtitle}" class="sapUiSmallMarginBottom opSubtitle"/>
+
+				<!-- KPI tiles: XL3/L6/M6/S12 gives a deterministic 4-across / 2x2 / 2x2 / stacked
+				     progression instead of relying on a wrapping FlexBox of fixed-size tiles. -->
+				<layout:Grid defaultSpan="XL3 L6 M6 S12" class="opKpiGrid sapUiSmallMarginBottom">
+					<GenericTile
+						class="opKpiTile"
+						frameType="TwoByHalf"
+						header="{i18n>kpiActiveProjects}"
+						press="onActiveProjectsPress"
+					>
+						<TileContent>
+							<NumericContent
+								value="{= ${portfolio>/dashboard/kpis/activeProjects} + '' }"
+								icon="sap-icon://project-definition-triangle-2"
+								withMargin="false"
+							/>
+						</TileContent>
+					</GenericTile>
+
+					<GenericTile
+						class="opKpiTile"
+						frameType="TwoByHalf"
+						header="{i18n>kpiProjectsAtRisk}"
+						press="onProjectsAtRiskPress"
+					>
+						<TileContent>
+							<NumericContent
+								value="{= ${portfolio>/dashboard/kpis/projectsAtRisk} + '' }"
+								valueColor="Error"
+								icon="sap-icon://alert"
+								withMargin="false"
+							/>
+						</TileContent>
+					</GenericTile>
+
+					<GenericTile
+						class="opKpiTile"
+						frameType="TwoByHalf"
+						header="{i18n>kpiUpcomingMilestones}"
+						press="onUpcomingMilestonesPress"
+					>
+						<TileContent>
+							<NumericContent
+								value="{= ${portfolio>/dashboard/kpis/upcomingMilestones} + '' }"
+								valueColor="Neutral"
+								icon="sap-icon://flag"
+								withMargin="false"
+							/>
+						</TileContent>
+					</GenericTile>
+
+					<GenericTile
+						class="opKpiTile"
+						frameType="TwoByHalf"
+						header="{i18n>kpiOpenRisks}"
+						press="onOpenRisksPress"
+					>
+						<TileContent>
+							<NumericContent
+								value="{= ${portfolio>/dashboard/kpis/openRisks} + '' }"
+								valueColor="Critical"
+								icon="sap-icon://warning"
+								withMargin="false"
+							/>
+						</TileContent>
+					</GenericTile>
+				</layout:Grid>
+
+				<!-- Second row: health + risk summary -->
+				<layout:Grid defaultSpan="XL6 L6 M12 S12" class="opDashboardGrid">
+					<Panel class="opPanel">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>sectionProjectHealth}" level="H2"/>
+							</Toolbar>
+						</headerToolbar>
+						<HBox wrap="Wrap" class="opStatRow">
+							<VBox class="opStatBlock">
+								<Text text="{i18n>healthHealthy}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/healthSummary/Healthy}"
+									state="Success"
+									icon="sap-icon://sys-enter-2"
+									active="true"
+									press="onHealthyPress"
+									class="opStatValue"
+								/>
+							</VBox>
+							<VBox class="opStatBlock">
+								<Text text="{i18n>healthAttention}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/healthSummary/Attention}"
+									state="Warning"
+									icon="sap-icon://alert"
+									active="true"
+									press="onAttentionPress"
+									class="opStatValue"
+								/>
+							</VBox>
+							<VBox class="opStatBlock">
+								<Text text="{i18n>healthAtRisk}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/healthSummary/At Risk}"
+									state="Error"
+									icon="sap-icon://error"
+									active="true"
+									press="onAtRiskPress"
+									class="opStatValue"
+								/>
+							</VBox>
+						</HBox>
+					</Panel>
+
+					<Panel class="opPanel">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>sectionRiskSummary}" level="H2"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>viewAllRisks}" type="Transparent" press="onViewAllRisksPress"/>
+							</Toolbar>
+						</headerToolbar>
+						<HBox wrap="Wrap" class="opStatRow">
+							<VBox class="opStatBlock">
+								<Text text="{i18n>riskSeverityLow}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/riskSummary/Low}"
+									state="Success"
+									active="true"
+									press="onRiskLowPress"
+									class="opStatValue"
+								/>
+							</VBox>
+							<VBox class="opStatBlock">
+								<Text text="{i18n>riskSeverityMedium}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/riskSummary/Medium}"
+									state="Warning"
+									active="true"
+									press="onRiskMediumPress"
+									class="opStatValue"
+								/>
+							</VBox>
+							<VBox class="opStatBlock">
+								<Text text="{i18n>riskSeverityHigh}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/riskSummary/High}"
+									state="Error"
+									active="true"
+									press="onRiskHighPress"
+									class="opStatValue"
+								/>
+							</VBox>
+							<VBox class="opStatBlock">
+								<Text text="{i18n>riskSeverityCritical}" class="opStatLabel"/>
+								<ObjectStatus
+									text="{portfolio>/dashboard/riskSummary/Critical}"
+									state="Error"
+									active="true"
+									press="onRiskCriticalPress"
+									class="opStatValue"
+								/>
+							</VBox>
+						</HBox>
+					</Panel>
+				</layout:Grid>
+
+				<!-- Third row: upcoming milestones + recent activity -->
+				<layout:Grid defaultSpan="XL6 L6 M12 S12" class="opDashboardGrid">
+					<Panel class="opPanel">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>sectionUpcomingMilestones}" level="H2"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>viewAllMilestones}" type="Transparent" press="onViewAllMilestonesPress"/>
+							</Toolbar>
+						</headerToolbar>
+						<List
+							id="upcomingMilestonesList"
+							items="{portfolio>/dashboard/upcomingMilestones}"
+							noDataText="{i18n>noUpcomingMilestones}"
+							class="opMilestoneList"
+						>
+							<ObjectListItem
+								title="{portfolio>name}"
+								number="{= ${portfolio>completionPercent} + '' }"
+								numberUnit="%"
+								press="onMilestoneItemPress"
+								type="Active"
+							>
+								<attributes>
+									<ObjectAttribute text="{portfolio>projectName}"/>
+									<ObjectAttribute text="{ path: 'portfolio>dueDate', formatter: 'F.formatDate' }"/>
+								</attributes>
+								<firstStatus>
+									<ObjectStatus
+										text="{ path: 'portfolio>derivedStatus', formatter: '.formatMilestoneStatusText' }"
+										state="{ path: 'portfolio>derivedStatus', formatter: 'F.milestoneStatusState' }"
+										icon="{ path: 'portfolio>derivedStatus', formatter: 'F.milestoneStatusIcon' }"
+									/>
+								</firstStatus>
+							</ObjectListItem>
+						</List>
+					</Panel>
+
+					<Panel class="opPanel">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="{i18n>sectionRecentActivity}" level="H2"/>
+							</Toolbar>
+						</headerToolbar>
+						<List
+							id="recentActivityList"
+							items="{portfolio>/dashboard/recentActivity}"
+							noDataText="{i18n>noRecentActivity}"
+							class="opActivityList"
+						>
+							<StandardListItem
+								title="{portfolio>description}"
+								info="{ path: 'portfolio>timestamp', formatter: 'F.formatDateTime' }"
+								description="{portfolio>projectName}"
+								icon="sap-icon://activity-items"
+								type="Active"
+								press="onActivityItemPress"
+								wrapping="true"
+							/>
+						</List>
+					</Panel>
+				</layout:Grid>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

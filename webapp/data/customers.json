@@ -1,0 +1,40 @@
+{
+  "customers": [
+    {
+      "customerId": "CUST-1001",
+      "name": "Beacon Industrial Group",
+      "industry": "Industrial Manufacturing",
+      "region": "North America"
+    },
+    {
+      "customerId": "CUST-1002",
+      "name": "Fenwick & Cole Retail",
+      "industry": "Retail & Consumer Goods",
+      "region": "North America"
+    },
+    {
+      "customerId": "CUST-1003",
+      "name": "Calder Energy Partners",
+      "industry": "Energy & Utilities",
+      "region": "Europe"
+    },
+    {
+      "customerId": "CUST-1004",
+      "name": "Solstice Financial Group",
+      "industry": "Financial Services",
+      "region": "North America"
+    },
+    {
+      "customerId": "CUST-1005",
+      "name": "Vantage Health Systems",
+      "industry": "Healthcare",
+      "region": "North America"
+    },
+    {
+      "customerId": "CUST-1006",
+      "name": "Ironwood Utilities Co.",
+      "industry": "Energy & Utilities",
+      "region": "North America"
+    }
+  ]
+}

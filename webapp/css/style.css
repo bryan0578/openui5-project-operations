@@ -1,0 +1,92 @@
+/* Project Operations - application-level styling.
+   Kept intentionally minimal: layout/spacing helpers only, no custom branding
+   that would override native Fiori/Horizon theme colors, typography or controls. */
+
+.opPageContent {
+	max-width: 1600px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.opSubtitle {
+	color: var(--sapContent_LabelColor);
+}
+
+/* KPI row: a real responsive Grid (XL3/L6/M6/S12) replaces a wrapping FlexBox of
+   fixed-size tiles, so the 4-across / 2x2 / stacked progression is deterministic
+   at every breakpoint instead of depending on how many fixed-width tiles happen
+   to fit. TwoByHalf trims the tile to a lean KPI-strip height, and width:100%
+   lets it fill its grid cell instead of using GenericTile's own fixed intrinsic size. */
+.opKpiGrid {
+	margin-bottom: 1.5rem;
+}
+
+.opKpiTile.sapMGT {
+	width: 100%;
+	margin: 0;
+}
+
+/* Section navigation: keep the full accessible 44px tap target, just calm down
+   the icon glyph itself so the strip reads less dominant against the page below. */
+.opSectionNav .sapMITBFilterIcon .sapUiIcon {
+	font-size: 1.25rem;
+}
+
+/* Consistent vertical rhythm between the KPI row and the panel rows beneath it,
+   and between the panel rows themselves. */
+.opDashboardGrid {
+	margin-top: 0;
+	margin-bottom: 1.5rem;
+}
+
+.opPanel {
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.opStatRow {
+	gap: 1.25rem;
+	padding: 0.25rem 1rem 1.25rem 1rem;
+}
+
+.opStatBlock {
+	min-width: 4.5rem;
+	align-items: flex-start;
+}
+
+.opStatLabel {
+	color: var(--sapContent_LabelColor);
+	margin-bottom: 0.25rem;
+}
+
+/* Stronger numeric emphasis for KPI-style statuses without inflating the tile itself. */
+.opStatValue .sapMObjStatusText {
+	font-size: var(--sapFontHeader3Size, 1.5rem);
+	font-weight: 700;
+}
+
+/* Looser row rhythm for the milestone/activity lists so items are easy to scan
+   without leaning on heavy borders. */
+.opMilestoneList .sapMLIB,
+.opActivityList .sapMLIB {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+
+.opFilterBar {
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.opFilterBar > * {
+	min-width: 0;
+}
+
+.opEmptyState {
+	padding: 3rem 1rem;
+}
+
+/* Prevent any single control from forcing horizontal page scroll on narrow viewports */
+html, body {
+	overflow-x: hidden;
+}

@@ -1,0 +1,25 @@
+<mvc:View
+	controllerName="projectops.controller.NotFound"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+>
+	<Page id="notFoundPage" showHeader="true">
+		<customHeader>
+			<core:Fragment fragmentName="projectops.view.fragment.ShellHeader" type="XML"/>
+		</customHeader>
+		<content>
+			<IllustratedMessage
+				class="opEmptyState"
+				illustrationType="sapIllus-PageNotFound"
+				title="{i18n>notFoundTitle}"
+				description="{i18n>notFoundDescription}"
+			>
+				<additionalContent>
+					<Button text="{i18n>notFoundBackButton}" press="onGoToDashboard"/>
+				</additionalContent>
+			</IllustratedMessage>
+		</content>
+	</Page>
+</mvc:View>

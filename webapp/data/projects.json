@@ -1,0 +1,95 @@
+{
+  "projects": [
+    {
+      "projectId": "PRJ-2001",
+      "name": "Northstar ERP Modernization",
+      "customerId": "CUST-1001",
+      "projectManagerId": "PPL-01",
+      "status": "Active",
+      "health": "Attention",
+      "startDate": "2025-11-03",
+      "targetDate": "2026-12-18",
+      "completionPercent": 42,
+      "description": "Replatforming Beacon Industrial Group's core manufacturing and finance processes onto a modern ERP suite, including plant data integration, procurement workflow redesign, and a phased cutover across four production sites.",
+      "teamMemberIds": ["PPL-01", "PPL-06", "PPL-10", "PPL-12", "PPL-16"]
+    },
+    {
+      "projectId": "PRJ-2002",
+      "name": "Atlas Commerce Platform",
+      "customerId": "CUST-1002",
+      "projectManagerId": "PPL-02",
+      "status": "Active",
+      "health": "Healthy",
+      "startDate": "2026-01-12",
+      "targetDate": "2026-10-30",
+      "completionPercent": 61,
+      "description": "Delivering a unified commerce platform for Fenwick & Cole Retail spanning storefront, order management, and loyalty services, with a mobile-first customer experience and real-time inventory visibility.",
+      "teamMemberIds": ["PPL-02", "PPL-09", "PPL-11", "PPL-15", "PPL-13"]
+    },
+    {
+      "projectId": "PRJ-2003",
+      "name": "Horizon Analytics Migration",
+      "customerId": "CUST-1003",
+      "projectManagerId": "PPL-03",
+      "status": "Active",
+      "health": "At Risk",
+      "startDate": "2025-09-08",
+      "targetDate": "2026-09-25",
+      "completionPercent": 38,
+      "description": "Migrating Calder Energy Partners' legacy reporting warehouse to a cloud analytics platform, consolidating field telemetry, asset maintenance, and regulatory reporting into a single governed data model.",
+      "teamMemberIds": ["PPL-03", "PPL-07", "PPL-17", "PPL-18", "PPL-08"]
+    },
+    {
+      "projectId": "PRJ-2004",
+      "name": "Meridian Customer Portal",
+      "customerId": "CUST-1004",
+      "projectManagerId": "PPL-04",
+      "status": "Active",
+      "health": "Healthy",
+      "startDate": "2026-02-16",
+      "targetDate": "2026-11-13",
+      "completionPercent": 55,
+      "description": "Building a self-service customer portal for Solstice Financial Group covering account servicing, secure document exchange, and advisor scheduling, integrated with existing policy administration systems.",
+      "teamMemberIds": ["PPL-04", "PPL-09", "PPL-15", "PPL-11", "PPL-13"]
+    },
+    {
+      "projectId": "PRJ-2005",
+      "name": "Summit Integration Program",
+      "customerId": "CUST-1005",
+      "projectManagerId": "PPL-05",
+      "status": "On Hold",
+      "health": "Attention",
+      "startDate": "2025-06-02",
+      "targetDate": "2026-12-01",
+      "completionPercent": 29,
+      "description": "Establishing an integration backbone connecting Vantage Health Systems' scheduling, billing, and clinical records platforms, currently paused pending revised data-governance sign-off from the customer's compliance office.",
+      "teamMemberIds": ["PPL-05", "PPL-06", "PPL-16", "PPL-18"]
+    },
+    {
+      "projectId": "PRJ-2006",
+      "name": "Cascade Field Service Rollout",
+      "customerId": "CUST-1006",
+      "projectManagerId": "PPL-02",
+      "status": "Completed",
+      "health": "Healthy",
+      "startDate": "2025-01-20",
+      "targetDate": "2025-10-31",
+      "completionPercent": 100,
+      "description": "Delivered a mobile field-service scheduling and work-order solution for Ironwood Utilities Co. field crews, replacing paper-based dispatch with route-optimized, offline-capable mobile assignments.",
+      "teamMemberIds": ["PPL-02", "PPL-08", "PPL-14", "PPL-12"]
+    },
+    {
+      "projectId": "PRJ-2007",
+      "name": "Pinnacle Procurement Suite",
+      "customerId": "CUST-1001",
+      "projectManagerId": "PPL-01",
+      "status": "Active",
+      "health": "At Risk",
+      "startDate": "2025-12-01",
+      "targetDate": "2026-09-04",
+      "completionPercent": 33,
+      "description": "Rolling out a strategic sourcing and supplier-collaboration suite for Beacon Industrial Group to standardize procurement across newly acquired business units, with tight interdependencies on the Northstar ERP program.",
+      "teamMemberIds": ["PPL-01", "PPL-07", "PPL-10", "PPL-17"]
+    }
+  ]
+}

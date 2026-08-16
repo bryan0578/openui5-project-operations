@@ -1,0 +1,19 @@
+{
+  "activities": [
+    { "activityId": "ACT-6001", "projectId": "PRJ-2003", "type": "Risk", "description": "Raised a critical risk on regulatory reporting rules interpretation.", "timestamp": "2026-08-14T09:30:00", "actorId": "PPL-03" },
+    { "activityId": "ACT-6002", "projectId": "PRJ-2004", "type": "Deliverable", "description": "Submitted the Portal Security Assessment for review.", "timestamp": "2026-08-13T15:05:00", "actorId": "PPL-18" },
+    { "activityId": "ACT-6003", "projectId": "PRJ-2001", "type": "Milestone", "description": "Updated progress on Plant Data Integration Go-Live to 70% complete.", "timestamp": "2026-08-12T11:20:00", "actorId": "PPL-16" },
+    { "activityId": "ACT-6004", "projectId": "PRJ-2007", "type": "Risk", "description": "Escalated sourcing rollout sequencing risk with the Northstar program team.", "timestamp": "2026-08-11T14:45:00", "actorId": "PPL-01" },
+    { "activityId": "ACT-6005", "projectId": "PRJ-2002", "type": "Deliverable", "description": "Submitted the Order Management Test Summary for review.", "timestamp": "2026-08-10T10:00:00", "actorId": "PPL-13" },
+    { "activityId": "ACT-6006", "projectId": "PRJ-2005", "type": "Status", "description": "Program status remains On Hold pending customer data-governance sign-off.", "timestamp": "2026-08-09T08:15:00", "actorId": "PPL-05" },
+    { "activityId": "ACT-6007", "projectId": "PRJ-2004", "type": "Risk", "description": "Opened a risk covering potential penetration-test findings ahead of GA.", "timestamp": "2026-08-08T13:40:00", "actorId": "PPL-18" },
+    { "activityId": "ACT-6008", "projectId": "PRJ-2003", "type": "Deliverable", "description": "Submitted the Regulatory Reporting Validation Report for review.", "timestamp": "2026-08-07T16:25:00", "actorId": "PPL-17" },
+    { "activityId": "ACT-6009", "projectId": "PRJ-2002", "type": "Team", "description": "Added Hannah Voss to the Atlas Commerce Platform QA team.", "timestamp": "2026-08-06T09:00:00", "actorId": "PPL-02" },
+    { "activityId": "ACT-6010", "projectId": "PRJ-2007", "type": "Deliverable", "description": "Submitted the Sourcing Module Integration Test Plan for review.", "timestamp": "2026-08-05T12:10:00", "actorId": "PPL-10" },
+    { "activityId": "ACT-6011", "projectId": "PRJ-2001", "type": "Risk", "description": "Moved plant data extract capacity risk to Mitigating with a redesigned batch window.", "timestamp": "2026-08-04T11:00:00", "actorId": "PPL-16" },
+    { "activityId": "ACT-6012", "projectId": "PRJ-2006", "type": "Status", "description": "Program closed out following completed hypercare handover.", "timestamp": "2025-11-16T09:00:00", "actorId": "PPL-02" },
+    { "activityId": "ACT-6013", "projectId": "PRJ-2004", "type": "Milestone", "description": "Completed Account Servicing Module UAT with customer sign-off.", "timestamp": "2026-06-10T17:00:00", "actorId": "PPL-11" },
+    { "activityId": "ACT-6014", "projectId": "PRJ-2002", "type": "Milestone", "description": "Completed Storefront UX Design Sign-off.", "timestamp": "2026-02-28T14:30:00", "actorId": "PPL-15" },
+    { "activityId": "ACT-6015", "projectId": "PRJ-2005", "type": "Risk", "description": "Submitted executive escalation for the data-governance sign-off delay.", "timestamp": "2026-08-02T10:50:00", "actorId": "PPL-05" }
+  ]
+}
